@@ -1,0 +1,36 @@
+__pycache__/
+/output.sas
+/sas_plan
+/sas_plan.*
+/builds/
+/misc/.tox/
+/misc/autodoc/downward-xmlrpc.secret
+
+/data
+/venv
+.vscode/
+*.out
+test.cpp
+build/*
+*.tar.gz
+*.zip
+*.ipynb
+*.sif
+
+builds/*
+data/
+.venv/*
+
+# socs26 reproducer artifacts
+experiments/socs26/data/
+experiments/socs26/*.log
+experiments/socs26/_*/
+experiments/socs26/*.err
+experiments/socs26/*.out
+
+# Lab cache
+data/revision-cache/
+
+# libtorch / planner outputs left in CWD
+output.sas
+sas_plan*
