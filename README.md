@@ -1,10 +1,12 @@
-## Repository layout
+# Code for the SoCS 2026 paper: Parallelizing Classical Planning: Critical Path Heuristics on the GPU
+
+## Important files
 
 ```
-src/search/heuristics/h2_heuristic.{cc,h}      - classical CPU h^2 baseline
-src/search/heuristics/hm2_base.{cc,h}          - shared base: hypergraph build, dominance pruning
+src/search/heuristics/h2_heuristic.{cc,h}      - classical CPU h^2 baseline from Haslum (FD's integrated version is way slower)
+src/search/heuristics/hm2_base.{cc,h}          - hypergraph build, dominance pruning
 src/search/heuristics/hyperedge.{cc,h}         - hyperedge data structure
-src/search/heuristics/hm2_torch.{cc,h}         - PyTorch host-side h^m (batching, CP, fixed-point)
+src/search/heuristics/hm2_torch.{cc,h}         - LibTorch host-side h^m (batching, CP, fixed-point)
 src/search/heuristics/hm2_torch_cuda.{cu,h}    - fused CUDA kernels (max-add, grouped-amin)
 experiments/socs26/run_paper_experiments.py    - Lab script reproducing all six paper configs
 experiments/socs26/project.py                  - shared Lab settings + benchmark suites
@@ -44,7 +46,7 @@ The six paper configurations are:
 
 The paper used [Lab](https://lab.readthedocs.io/) (from the AI Group, University
 of Basel) to drive batched IPC-suite runs on SLURM (Tetralith / Berzelius at
-NSC, Sweden). The reproducer script `experiments/socs26/run_paper_experiments.py`
+NSC, Sweden). The script `experiments/socs26/run_paper_experiments.py`
 defines exactly the six configurations above and runs them over the full
 optimal STRIPS suite.
 
