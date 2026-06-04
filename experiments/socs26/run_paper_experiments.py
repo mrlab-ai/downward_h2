@@ -132,10 +132,6 @@ CONFIGS = [
      ["--search", "astar(hm2torch(m=2,use_gpu=true,cp=2,n_cp=5))"]),
 ]
 
-# Lab prepends its own defaults (including "--validate", which requires the
-# VAL plan validator on PATH). The paper experiments did not validate plans
-# externally; passing an empty driver_options bypasses Lab's defaults and
-# leaves the limits to SLURM.
 DRIVER_OPTIONS = [
     "--overall-memory-limit", "100G",   # not enforced; SLURM cgroup is the real cap
     "--overall-time-limit",  "30m",
